@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ *
+ * @package     Hyperpay
+ * @copyright   Copyright (c) 2014 HYPERPAY
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * 
+ */
+?>
+<?php
+	$langs = Mage::helper('hyperpay')->getLocaleIsoCode(); 
+	switch ($langs) {
+		case 'de':
+		case 'fr':
+		case 'nl':
+		case 'it':
+		  $lang = $langs;
+		  break;
+
+		default:
+		  $lang='en';
+	}
+?>
+<script src="<?php echo Mage::getSingleton('customer/session')->getJsUrl().$lang;?>" type="text/javascript"></script>
+<script src="<?php echo $this->getSkinUrl('js/hyperpay/jquery-1.10.2.min.js')?>" type="text/javascript"></script>
+<script src="<?php echo $this->getSkinUrl('js/hyperpay/hyperpay_dd.js')?>" type="text/javascript"></script>
+<link href="<?php echo $this->getSkinUrl('css/hyperpay/formbank.css')?>" rel="stylesheet" type="text/css">
+
+
+<form action="<?php echo Mage::getSingleton('customer/session')->getIframeFrontendResponse();?>" id="<?php echo Mage::getSingleton('customer/session')->getIframeToken();?>">DIRECTDEBIT_SEPA_MIX_DE</form>
+<input class="cust_name" value="<?php echo Mage::getSingleton('customer/session')->getIframeName();?>" type="hidden">
+<input class="img_url" value="<?php echo $this->getSkinUrl('images/hyperpay');?>" type="hidden">
+
+<?php
+	if ($lang == "de")			
+		echo '<a class="linkhyperpay" href="http://www.hyperpay.com" target="blank">';
+	else
+		echo '<a class="linkhyperpay" href="http://www.hyperpay.com" target="blank">';
+?>
+
+<span class="txtBankTitle"><h4><?php echo Mage::helper('hyperpay')->__('Direct debit from bank account');?></h4></span>
+<span class="txtSSL"><?php echo Mage::helper('hyperpay')->__('This page is SSL-encrypted in order to protect your data.'); ?></span>
+<span class="txtAccNumber"><?php echo Mage::helper('hyperpay')->__('Account Number');?></span>
+<span class="txtBankCode"><?php echo Mage::helper('hyperpay')->__('Bank Code');?></span>
+<span class="txtBank"><?php echo Mage::helper('hyperpay')->__('Bank');?></span>
+<a class="btnCustom btnCustomCancel" href="<?php echo $this->getBaseUrl()?>checkout/onepage"><?php echo Mage::helper('hyperpay')->__('Cancel');?></a>
+<input type="submit" value="<?php echo Mage::helper('hyperpay')->__('Confirm');?>" class="btnCustom btnCustomSubmit">

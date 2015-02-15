@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ *
+ * @package     Hyperpay
+ * @copyright   Copyright (c) 2014 HYPERPAY
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Hyperpay>
+            <version>1.1.2</version>
+        </Hyperpay>
+    </modules>
+
+    <global>
+        <helpers>
+            <hyperpay>
+                <class>Hyperpay_Helper</class>
+            </hyperpay>
+        </helpers>
+        <models>
+            <hyperpay>
+                <class>Hyperpay_Model</class>
+            </hyperpay>
+        </models>
+        <resources>
+            <hyperpay_setup>
+                <setup>
+                    <module>Hyperpay</module>
+					<class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </hyperpay_setup>
+        </resources>		
+        <blocks>
+            <hyperpay>
+                <class>Hyperpay_Block</class>
+            </hyperpay>
+        </blocks>
+        <events>
+            <sales_model_service_quote_submit_success>
+                <observers>
+                    <hyperpay_success_observer>
+                        <type>model</type>
+                        <class>Hyperpay_Model_Success_Observer</class>
+                        <method>activateQuote</method>
+                    </hyperpay_success_observer>
+                </observers>
+            </sales_model_service_quote_submit_success>     
+        </events>
+        <sales>
+            <order>
+                <statuses>
+                    <payment_accepted translate="label">
+                        <label>Payment Accepted</label>
+                    </payment_accepted>
+                    <payment_remotely translate="label">
+                        <label>Payment Remotely Accepted</label>
+                    </payment_remotely>					
+                </statuses>
+				<states>
+					<pending_payment>
+						<statuses>
+							<payment_remotely/>
+						</statuses>
+					</pending_payment>
+					<processing>
+						<statuses>
+							<payment_accepted/>
+						</statuses>
+					</processing>					
+				</states>
+            </order>
+        </sales>		
+    </global>
+
+    <frontend>
+        <translate>
+            <modules>
+                <Hyperpay>
+                    <files>
+                        <default>Hyperpay.csv</default>
+                    </files>
+                </Hyperpay>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Hyperpay>
+                    <files>
+                        <default>Hyperpay.csv</default>
+                    </files>
+                </Hyperpay>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <hyperpay>
+                <use>admin</use>
+                <args>
+                    <module>Hyperpay</module>
+                    <frontName>hyperpay</frontName>
+                </args>
+            </hyperpay>
+        </routers>
+    </admin>
+
+    <frontend>
+        <routers>
+            <hyperpay>
+                <use>standard</use>
+                <args>
+                    <module>Hyperpay</module>
+                    <frontName>hyperpay</frontName>
+                </args>
+            </hyperpay>
+        </routers>
+    </frontend>
+
+    <default>
+        <payment>
+            <hyperpay_creditcard>
+                <active>1</active>
+                <model>hyperpay/method_creditcard</model>
+                <order_status>pending_payment</order_status>
+				<payment_action>authorize</payment_action>				
+                <title>Cards</title>
+                <server_mode>TEST</server_mode>
+                <transaction_mode>DB</transaction_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_creditcard>
+
+            <hyperpay_directdebit>
+                <active>1</active>
+                <model>hyperpay/method_directdebit</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>				
+                <title>Direct Debit</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_directdebit>
+            
+            <hyperpay_eps>
+                <active>1</active>
+                <model>hyperpay/method_eps</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <title>eps</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_eps>
+			
+            <hyperpay_giropay>
+                <active>1</active>
+                <model>hyperpay/method_giropay</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <title>giropay</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_giropay>
+
+            <hyperpay_ideal>
+                <active>1</active>
+                <model>hyperpay/method_ideal</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <title>iDeal</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_ideal>
+
+            <hyperpay_paypal>
+                <active>1</active>
+                <model>hyperpay/method_paypal</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <title>PayPal</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_paypal>
+            
+            <hyperpay_sofortuberweisung>
+                <active>1</active>
+                <model>hyperpay/method_sofortuberweisung</model>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <title>SOFORT Ü‎berweisung</title>
+                <server_mode>TEST</server_mode>
+				<channel_id></channel_id>
+				<sender></sender>
+				<login></login>
+				<password></password>				
+            </hyperpay_sofortuberweisung>
+			
+        </payment>
+    </default>
+
+</config>
