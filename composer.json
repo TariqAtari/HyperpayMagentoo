@@ -2,7 +2,7 @@
     "name": "gate2play/hyperpay",
     "type": "magento-module",
     "license": "OSL-3.0",
-    "description": "Magento payment extension",
+    "description": "Hyperpay: A Magento payment extension",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
     },
