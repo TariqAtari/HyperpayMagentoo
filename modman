@@ -1,7 +1,16 @@
 app/code/community/Hyperpay/                              app/code/community/Hyperpay/
 app/design/frontend/base/default/template/hyperpay/       app/design/frontend/base/default/template/hyperpay/
 app/etc/modules/Hyperpay.xml                              app/etc/modules/Hyperpay.xml
-app/locale/*                                              app/locale/
+app/locale/ar_SA/Hyperpay.csv                             app/locale/ar_SA/Hyperpay.csv
+app/locale/de_AT/Hyperpay.csv                             app/locale/de_AT/Hyperpay.csv
+app/locale/de_CH/Hyperpay.csv                             app/locale/de_CH/Hyperpay.csv
+app/locale/de_DE/Hyperpay.csv                             app/locale/de_DE/Hyperpay.csv
+app/locale/en_AU/Hyperpay.csv                             app/locale/en_AU/Hyperpay.csv
+app/locale/en_CA/Hyperpay.csv                             app/locale/en_CA/Hyperpay.csv
+app/locale/en_GB/Hyperpay.csv                             app/locale/en_GB/Hyperpay.csv
+app/locale/en_IE/Hyperpay.csv                             app/locale/en_IE/Hyperpay.csv
+app/locale/en_NZ/Hyperpay.csv                             app/locale/en_NZ/Hyperpay.csv
+app/locale/en_US/Hyperpay.csv                             app/locale/en_US/Hyperpay.csv
 skin/frontend/base/default/css/hyperpay/                  skin/frontend/base/default/css/hyperpay/
 skin/frontend/base/default/images/hyperpay/               skin/frontend/base/default/images/hyperpay/
 skin/frontend/base/default/js/hyperpay/                   skin/frontend/base/default/js/hyperpay/
