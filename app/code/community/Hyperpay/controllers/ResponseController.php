@@ -128,18 +128,12 @@ class Hyperpay_ResponseController extends Mage_Core_Controller_Front_Action
     public function renderCCAction()
     {
         $this->loadLayout();
-        $block = $this->getLayout()->createBlock('hyperpay/payment_formcc');
-
-        $this->getLayout()->getBlock('content')->append($block);
         $this->renderLayout();
     }
     
     public function renderDDAction()
     {
         $this->loadLayout();
-        $block = $this->getLayout()->createBlock('hyperpay/payment_formdd');
-
-        $this->getLayout()->getBlock('content')->append($block);
         $this->renderLayout();
     }
 

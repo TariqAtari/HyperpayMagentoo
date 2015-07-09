@@ -20,13 +20,4 @@
  */
 
 class Hyperpay_Block_Payment_Formcc extends Mage_Core_Block_Template 
-{
-    /**
-     * Construct
-     */
-    public function _construct()
-    {
-        parent::_construct();
-        $this->setTemplate('hyperpay/payment/formcc.phtml');
-    }
-}
+{}
