@@ -20,13 +20,4 @@
  */
 
 class Hyperpay_Block_Payment_Formdd extends Mage_Core_Block_Template 
-{
-    /**
-     * Construct
-     */
-    public function _construct()
-    {
-        parent::_construct();
-        $this->setTemplate('hyperpay/payment/formdd.phtml');
-    }
-}
+{}

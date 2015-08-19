@@ -50,17 +50,6 @@
                 <class>Hyperpay_Block</class>
             </hyperpay>
         </blocks>
-        <events>
-            <sales_model_service_quote_submit_success>
-                <observers>
-                    <hyperpay_success_observer>
-                        <type>model</type>
-                        <class>Hyperpay_Model_Success_Observer</class>
-                        <method>activateQuote</method>
-                    </hyperpay_success_observer>
-                </observers>
-            </sales_model_service_quote_submit_success>     
-        </events>
         <sales>
             <order>
                 <statuses>
@@ -97,8 +86,23 @@
                 </Hyperpay>
             </modules>
         </translate>
+        <routers>
+            <Hyperpay>
+                <use>standard</use>
+                <args>
+                    <module>Hyperpay</module>
+                    <frontName>hyperpay</frontName>
+                </args>
+            </Hyperpay>
+        </routers>
+        <layout>
+            <updates>
+                <hyperpay>
+                    <file>hyperpay.xml</file>
+                </hyperpay>
+            </updates>
+        </layout>
     </frontend>
-
     <adminhtml>
         <translate>
             <modules>
